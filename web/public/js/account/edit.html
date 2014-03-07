@@ -1,0 +1,21 @@
+<form role="form" class="well">
+    <div class="form-group">
+        <label for="accountName" class="control-label">Name</label>
+        <input type="text" class="form-control" id="accountName" placeholder="Account name" ng-model="account.name"/>
+    </div>
+    <div class="form-group">
+        <label for="accountType" class="control-label">Type</label>
+        <select class="form-control" ng-model="account.type">
+            <option ng-repeat="type in types">{{ type }}</option>
+        </select>
+    </div>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" id="accountStatus" ng-model="account.enabled"/> Enabled
+        </label>
+    </div>
+    <div class="clearfix text-right">
+        <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+        <button type="submit" class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+</form>

@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="col-sm-6">
+        <h4>Accounts</h4>
+    </div>
+    <div class="col-sm-6">
+        <button class="btn btn-default pull-right" ng-click="newAccount()" ng-hide="isNewAccount()">Add new account</button>
+    </div>
+</div>
+<div account-edit account="data.accountForm" types="data.accountTypes" save="saveAccount(data.accountForm)" cancel="closeForm()" ng-show="isNewAccount()"></div>
+
+
+<label ng-repeat="column in data.columns">
+    <input type="checkbox" ng-model="column.visible"/> {{ column.label }} &nbsp;
+</label>
+
+<table ng-table="tableParams" class="table" >
+    <thead>
+        <tr>
+            <th ng-repeat="column in data.columns"
+                ng-if="column.visible"
+                class="sortable"
+                ng-class="headerClass(column.name)"
+                ng-click="headerSort(column.name)">
+                <div>{{ column.label }}</div>
+            </th>
+            <th class="col-sm-2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="account in $data">
+            <td ng-repeat="column in data.columns"
+                ng-if="column.visible"
+                ng-hide="isEditAccount(account)">
+                {{ account[column.name] }}
+            </td>
+<!--             <td ng-hide="isEditAccount(account)" class="text-center">
+                <span class="account-status glyphicon" ng-class="{
+                    'glyphicon-ok-sign': account.enabled,
+                    'glyphicon-exclamation-sign': !account.enabled
+                }"></span>
+            </td>
+ -->            <td ng-hide="isEditAccount(account)" class="text-center">
+                <button class="btn btn-sm btn-default" ng-click="editAccount(account)">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                </button>
+                <button class="btn btn-sm btn-danger" ng-click="removeAccount(account._id)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+            </td>
+            <td ng-show="isEditAccount(account)" colspan="4">
+                <div account-edit account="data.accountForm" types="data.accountTypes" save="saveAccount(account)" cancel="closeForm($event)"></div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+{
+    "name": "et3",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "start": "nodemon app.js",
+        "debug": "nodemon --debug app.js"
+    },
+    "dependencies": {
+        "express": "3.4.8",
+        "express-resource": "1.0.0",
+        "ejs": "0.8.5",
+        "less-middleware": "0.1.15",
+        "http-proxy": "^1.0.2",
+        "passport": "^0.2.0",
+        "passport-local": "^0.1.6",
+        "request": "^2.34.0"
+    },
+    "devDependencies": {
+        "partialify": "^3.0.0",
+        "browserify-shim": "^3.3.1",
+        "browserify-middleware": "^2.3.0"
+    },
+    "browserify": {
+        "transform": [
+          "browserify-shim",
+          "partialify"
+        ]
+    },
+    "browser": {
+        "angular": "./public/bower_components/angular/angular.min.js",
+        "angular-bootstrap": "./public/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
+        "angular-ui-router": "./public/bower_components/angular-ui-router/release/angular-ui-router.min.js",
+        "ng-table": "./public/bower_components/ng-table/ng-table.js"
+    },
+    "browserify-shim": {
+        "jQuery": "$",
+        "angular": "angular"
+    }
+}
