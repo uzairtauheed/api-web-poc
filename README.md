@@ -5,9 +5,19 @@ An API/Web app PoC using a bunch of modules and frameworks, like Express.js, Ang
 
 ## Dependencies
 
-This is a MEAN application (MongoDB, Express.js, AngularJS, Node.js), therefore you need to have a working installation of Node.js (0.10.x) and MongoDB (2.x).
+This is a MEAN application (MongoDB, Express.js, AngularJS, Node.js), therefore you need to have a working installation of Node.js (0.10.x) and MongoDB (2.x). You will also require `nodemon` installed to make your life easier if any change is done on Node.js.
 
 ## Install
+
+IF there is no `nodemon` installed follow the command below, otherwise skip to step 2.
+
+### Step 1
+
+```sh
+npm install -g nodemon
+```
+
+### Step 2
 
 ```sh
 # CD to API folder and install Node.js dependencies
